@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter Matuszak · Portfólio</title>
+<meta name="description" content="Estudante de Engenharia de Software em Curitiba. Construo automações, bots e produtos com IA: funil de vendas em produção, bot no n8n com Gemini e experimentos com LLMs.">
+<meta property="og:title" content="Peter Matuszak · Portfólio">
+<meta property="og:description" content="Automações, bots e produtos construídos com IA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23e72937'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='16' fill='white' text-anchor='middle'>PM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #18181b;
+  --muted: #5b5b66;
+  --line: #e7e5e4;
+  --accent: #e72937;
+  --accent-soft: #fde8ea;
+  --chip: #f4f4f5;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f11;
+    --surface: #18181b;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #2a2a30;
+    --accent: #ff4655;
+    --accent-soft: #2b1418;
+    --chip: #232328;
+    --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+/* topo */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+.logo { font-weight: 800; text-decoration: none; letter-spacing: -.02em; }
+.logo span { color: var(--accent); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+nav ul a { text-decoration: none; color: var(--muted); }
+nav ul a:hover { color: var(--text); }
+
+/* apresentação */
+header { padding: 80px 0 56px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  background: var(--accent-soft); padding: 6px 12px; border-radius: 999px;
+}
+.tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+h1 {
+  font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -.035em;
+  margin: 20px 0 18px; font-weight: 800;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 0 30px; }
+.lead strong { color: var(--text); font-weight: 600; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 15px;
+  text-decoration: none; border: 1px solid var(--line); background: var(--surface);
+  transition: transform .15s, border-color .15s;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--text); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn svg { width: 18px; height: 18px; }
+
+/* números */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  margin-bottom: 72px;
+}
+.stat { background: var(--surface); padding: 22px 20px; }
+.stat b { display: block; font-size: 30px; font-weight: 800; letter-spacing: -.03em; }
+.stat span { font-size: 13.5px; color: var(--muted); line-height: 1.4; display: block; }
+
+/* seções */
+section { margin-bottom: 80px; }
+h2 { font-size: 28px; letter-spacing: -.025em; margin: 0 0 6px; font-weight: 800; }
+.sub { color: var(--muted); margin: 0 0 28px; }
+
+/* projetos */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+  min-width: 0; /* deixa o fluxo rolar dentro do card em vez de alargar a página */
+}
+.card.featured { grid-column: span 2; border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.card h3 { font-size: 19px; margin: 0; letter-spacing: -.015em; }
+.status { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: var(--chip); color: var(--muted); }
+.status.live { background: #e7f8ee; color: #137a3c; }
+@media (prefers-color-scheme: dark) { .status.live { background: #0f2a1b; color: #4ade80; } }
+.card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+.card ul { margin: 0 0 16px; padding-left: 18px; font-size: 14.5px; }
+.card li { margin-bottom: 4px; }
+.flow {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12.5px;
+  background: var(--chip); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px;
+  overflow-x: auto; white-space: nowrap;
+}
+.flow i { font-style: normal; color: var(--accent); padding: 0 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.chip { font-size: 12.5px; font-weight: 500; background: var(--chip); padding: 4px 10px; border-radius: 6px; }
+.links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; font-weight: 600; }
+.links a { color: var(--accent); text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+
+/* habilidades */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.skill { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+.skill h4 { margin: 0 0 12px; font-size: 15px; }
+
+/* formação */
+.timeline { border-left: 2px solid var(--line); padding-left: 22px; }
+.item { position: relative; margin-bottom: 24px; }
+.item::before {
+  content: ""; position: absolute; left: -29px; top: 7px;
+  width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent);
+}
+.item b { display: block; }
+.item span { color: var(--muted); font-size: 14.5px; }
+
+/* contato */
+.contact {
+  background: var(--text); color: var(--bg); border-radius: 20px; padding: 44px 36px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.contact h2 { color: var(--bg); }
+.contact p { margin: 0; opacity: .75; max-width: 460px; }
+.contact .btn { background: var(--bg); color: var(--text); border-color: var(--bg); }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 13.5px; }
+
+@media (max-width: 760px) {
+  nav ul { display: none; }
+  header { padding: 52px 0 40px; }
+  .stats { grid-template-columns: repeat(2, 1fr); margin-bottom: 56px; }
+  .grid, .skills { grid-template-columns: 1fr; }
+  .card.featured { grid-column: auto; }
+  section { margin-bottom: 60px; }
+  .contact { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">Peter<span>.</span></a>
+    <ul>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header>
+    <span class="tag">Procurando estágio · Curitiba ou remoto</span>
+    <h1>Peter Matuszak.<br>Construo produtos e automações <em>com IA</em>.</h1>
+    <p class="lead">Estudante de <strong>Engenharia de Software</strong> na USF. Coloquei no ar um funil de vendas com quiz e pagamento Pix, criei um bot de Telegram com n8n e Gemini e testo prompts como experimento, medindo o resultado.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn" href="https://github.com/peter-mtszk" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/peterbueno" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>36 mi</b><span>de visualizações nos meus 5 principais posts</span></div>
+    <div class="stat"><b>600+</b><span>slides gerados por automação em Python</span></div>
+    <div class="stat"><b>89</b><span>testes automatizados no funil em produção</span></div>
+    <div class="stat"><b>4 anos</b><span>vendendo no Mercado Livre (2021–2025)</span></div>
+  </div>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <p class="sub">Produtos no ar, automações ativas e experimentos com resultado escrito.</p>
+
+    <div class="grid">
+      <article class="card featured">
+        <div class="card-top">
+          <h3>Funil de vendas com quiz de signos</h3>
+          <span class="status live">● No ar</span>
+        </div>
+        <p>Produto digital completo, do TikTok até a entrega. O visitante faz um quiz, recebe uma prévia do mapa astral e pode comprar e-books e leituras. O pagamento é por Pix e a entrega é automática.</p>
+        <div class="flow">TikTok<i>→</i>Quiz<i>→</i>Prévia grátis<i>→</i>Oferta<i>→</i>Pix (webhook)<i>→</i>Entrega automática</div>
+        <ul>
+          <li>~5 mil linhas de JavaScript e 10 endpoints serverless na Vercel</li>
+          <li>89 testes automatizados (API e cálculo do mapa) passando</li>
+          <li>Testes A/B de copy, Pixel do TikTok e captura de leads com hash do e-mail</li>
+          <li>Site em ~60 ms e API em ~190 ms (mediana, medida a partir de Curitiba)</li>
+        </ul>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">Vercel Serverless</span><span class="chip">Webhooks</span><span class="chip">Testes A/B</span><span class="chip">IA (Claude)</span></div>
+        <div class="links"><a href="https://tkxx-signos.vercel.app" target="_blank" rel="noopener">Ver site ↗</a><a href="https://github.com/peter-mtszk/webhook-pix-seguro" target="_blank" rel="noopener">Código da parte de pagamentos ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Bot de signos com IA</h3>
+          <span class="status live">● Ativo</span>
+        </div>
+        <p>Automação no n8n: a pessoa manda a data de nascimento no Telegram, o fluxo calcula o signo em JavaScript e o Gemini escreve uma resposta personalizada.</p>
+        <div class="flow">Telegram<i>→</i>Código (signo)<i>→</i>Gemini<i>→</i>Resposta</div>
+        <div class="chips"><span class="chip">n8n</span><span class="chip">Telegram Bot API</span><span class="chip">Gemini 3.5 Flash</span><span class="chip">JavaScript</span></div>
+        <div class="links"><a href="https://github.com/peter-mtszk/n8n-bot-astrology" target="_blank" rel="noopener">Ver no GitHub ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Prompt Library + experimentos</h3>
+          <span class="status">Python</span>
+        </div>
+        <p>Os prompts que eu uso, com o porquê de cada regra. Um script roda o mesmo prompt em temperaturas diferentes e outro confere se a IA seguiu as regras.</p>
+        <ul>
+          <li>1º experimento: a temperatura 0.2 errou mais que a 0.7</li>
+          <li>O validador pegou 2 respostas de 6 que quebrariam o gerador de slides</li>
+        </ul>
+        <div class="chips"><span class="chip">Prompt engineering</span><span class="chip">Gemini API</span><span class="chip">Python</span></div>
+        <div class="links"><a href="https://github.com/peter-mtszk/prompt-library" target="_blank" rel="noopener">Ver no GitHub ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Webhook Pix seguro</h3>
+          <span class="status">Node.js</span>
+        </div>
+        <p>A parte de pagamentos do funil, sem dependências e com testes. Ela só libera o produto quando o gateway confirma o Pix.</p>
+        <ul>
+          <li>Chave secreta comparada em tempo constante</li>
+          <li>Aviso repetido não paga dois pedidos; estorno bloqueia o acesso</li>
+          <li>Links assinados (HMAC) que expiram e trava após 8 tentativas</li>
+        </ul>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">Segurança</span><span class="chip">node --test</span></div>
+        <div class="links"><a href="https://github.com/peter-mtszk/webhook-pix-seguro" target="_blank" rel="noopener">Ver no GitHub ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Gerador de carrosséis</h3>
+          <span class="status">Python</span>
+        </div>
+        <p>Automação em Python (Pillow) que monta carrosséis de signos a partir de um roteiro de texto. Já gerou mais de 600 slides para o meu perfil do TikTok.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Pillow</span><span class="chip">Automação</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <p class="sub">O que eu já usei em projeto e o que estou aprendendo agora.</p>
+    <div class="skills">
+      <div class="skill">
+        <h4>IA e automação</h4>
+        <div class="chips"><span class="chip">Prompt engineering</span><span class="chip">n8n</span><span class="chip">Claude / ChatGPT / Gemini</span><span class="chip">APIs de LLM</span><span class="chip">Criativos com IA</span></div>
+      </div>
+      <div class="skill">
+        <h4>Desenvolvimento</h4>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML/CSS</span><span class="chip">Git e GitHub</span><span class="chip">Vercel</span><span class="chip">Python (aprendendo)</span></div>
+      </div>
+      <div class="skill">
+        <h4>Negócio e dados</h4>
+        <div class="chips"><span class="chip">Funis de venda</span><span class="chip">Testes A/B</span><span class="chip">Métricas</span><span class="chip">Meta Ads</span><span class="chip">E-commerce</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação</h2>
+    <p class="sub">Estudo, cursos e experiência.</p>
+    <div class="timeline">
+      <div class="item"><b>Engenharia de Software · Universidade São Francisco (USF)</b><span>2026 – em andamento · EAD, com disponibilidade para estágio</span></div>
+      <div class="item"><b>Hackers do Bem · Nivelamento e Nível Básico</b><span>2026 · Fundamentos de cibersegurança</span></div>
+      <div class="item"><b>Vendedor no Mercado Livre</b><span>2021 – 2025 · Anúncios, atendimento, estoque e expedição</span></div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="contact">
+      <div>
+        <h2>Vamos conversar?</h2>
+        <p>Estou procurando estágio em IA, automação, dados ou desenvolvimento, em Curitiba ou remoto. Aprendo rápido e gosto de colocar coisas no ar.</p>
+      </div>
+      <a class="btn" href="https://www.linkedin.com/in/peterbueno" target="_blank" rel="noopener">Falar no LinkedIn ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">© 2026 Peter Matuszak · Curitiba, PR</footer>
+
+</body>
+</html>
