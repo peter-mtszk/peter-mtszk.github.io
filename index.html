@@ -12,29 +12,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
+/* Tema escuro sempre (a versão de impressão continua clara, mais abaixo) */
 :root {
-  --bg: #fafaf9;
-  --surface: #ffffff;
-  --text: #18181b;
-  --muted: #5b5b66;
-  --line: #e7e5e4;
-  --accent: #e72937;
-  --accent-soft: #fde8ea;
-  --chip: #f4f4f5;
-  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f0f11;
-    --surface: #18181b;
-    --text: #f4f4f5;
-    --muted: #a1a1aa;
-    --line: #2a2a30;
-    --accent: #ff4655;
-    --accent-soft: #2b1418;
-    --chip: #232328;
-    --shadow: none;
-  }
+  color-scheme: dark;
+  --bg: #0f0f11;
+  --surface: #18181b;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: #2a2a30;
+  --accent: #ff4655;
+  --accent-soft: #2b1418;
+  --chip: #232328;
+  --shadow: none;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -115,8 +104,7 @@ h2 { font-size: 28px; letter-spacing: -.025em; margin: 0 0 6px; font-weight: 800
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
 .card h3 { font-size: 19px; margin: 0; letter-spacing: -.015em; }
 .status { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: var(--chip); color: var(--muted); }
-.status.live { background: #e7f8ee; color: #137a3c; }
-@media (prefers-color-scheme: dark) { .status.live { background: #0f2a1b; color: #4ade80; } }
+.status.live { background: #0f2a1b; color: #4ade80; }
 .card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
 .card ul { margin: 0 0 16px; padding-left: 18px; font-size: 14.5px; }
 .card li { margin-bottom: 4px; }
@@ -158,7 +146,8 @@ h2 { font-size: 28px; letter-spacing: -.025em; margin: 0 0 6px; font-weight: 800
 footer { padding: 32px 0 48px; color: var(--muted); font-size: 13.5px; }
 
 @media print {
-  :root { --bg: #fff; --surface: #fff; --text: #18181b; --muted: #52525b; --line: #e4e4e7; --accent: #e72937; --chip: #f4f4f5; --shadow: none; }
+  :root { color-scheme: light; --bg: #fff; --surface: #fff; --text: #18181b; --muted: #52525b; --line: #e4e4e7; --accent: #e72937; --chip: #f4f4f5; --shadow: none; }
+  .status.live { background: #e7f8ee; color: #137a3c; }
   @page { margin: 12mm 12mm; }
   body { font-size: 12.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   nav, .ctas .btn.primary { display: none; }
