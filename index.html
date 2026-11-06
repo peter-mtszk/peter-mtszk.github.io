@@ -259,6 +259,23 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13.5px; }
 
       <article class="card">
         <div class="card-top">
+          <h3>Sentinela: mini-SOC em Python</h3>
+          <span class="status">Em construção</span>
+        </div>
+        <p>Lê logs de acesso de servidores web (Apache e Nginx) e separa o que é normal do que merece alerta, como força bruta e varredura de páginas. Um passo novo e testado por dia.</p>
+        <div class="flow">Log<i>→</i>Leitor<i>→</i>Contagem por IP<i>→</i>Alerta</div>
+        <ul>
+          <li>Leitor do formato combined: IP, data com fuso, status; linhas corrompidas são ignoradas</li>
+          <li>Contagem de requisições por IP: o atacante de teste fez 8 pedidos em 4 segundos</li>
+          <li>Cenários de força bruta e varredura, 10 testes com pytest</li>
+          <li>Próximo passo: alerta de 5 falhas de login do mesmo IP em 10 minutos</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Análise de logs</span><span class="chip">SOC</span><span class="chip">pytest</span></div>
+        <div class="links"><a href="https://github.com/peter-mtszk/sentinela" target="_blank" rel="noopener">Ver no GitHub ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
           <h3>Bot de signos com IA</h3>
           <span class="status live">● Ativo</span>
         </div>
